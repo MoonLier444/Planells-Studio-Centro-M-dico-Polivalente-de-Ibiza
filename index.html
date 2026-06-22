@@ -625,6 +625,7 @@
     <section class="contact" id="contacto">
       <div class="contact-inner">
 
+        <!-- Columna 1: Información -->
         <div class="contact-info reveal-left">
           <div class="section-label">Encuéntranos</div>
           <h2 class="section-title">
@@ -672,9 +673,74 @@
               </div>
             </div>
           </div>
-
         </div>
 
+        <!-- Columna 2: Horarios -->
+        <div class="contact-hours reveal-up">
+          <div class="hours-card">
+            <div class="hours-header">
+              <div class="hours-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <circle cx="12" cy="12" r="10"/>
+                  <polyline points="12 6 12 12 16 14"/>
+                </svg>
+              </div>
+              <div>
+                <div class="section-label" style="margin-bottom:0.2rem">Horario de atención</div>
+                <p class="hours-subtitle">Abierto de lunes a sábado</p>
+              </div>
+            </div>
+
+            <ul class="hours-list">
+              <li class="hours-row" data-today="lun">
+                <span class="hours-day">Lunes</span>
+                <span class="hours-dots"></span>
+                <span class="hours-time">09:00 – 20:00</span>
+              </li>
+              <li class="hours-row" data-today="mar">
+                <span class="hours-day">Martes</span>
+                <span class="hours-dots"></span>
+                <span class="hours-time">09:00 – 20:00</span>
+              </li>
+              <li class="hours-row" data-today="mie">
+                <span class="hours-day">Miércoles</span>
+                <span class="hours-dots"></span>
+                <span class="hours-time">09:00 – 20:00</span>
+              </li>
+              <li class="hours-row" data-today="jue">
+                <span class="hours-day">Jueves</span>
+                <span class="hours-dots"></span>
+                <span class="hours-time">09:00 – 20:00</span>
+              </li>
+              <li class="hours-row" data-today="vie">
+                <span class="hours-day">Viernes</span>
+                <span class="hours-dots"></span>
+                <span class="hours-time">09:00 – 20:00</span>
+              </li>
+              <li class="hours-row" data-today="sab">
+                <span class="hours-day">Sábado</span>
+                <span class="hours-dots"></span>
+                <span class="hours-time">09:00 – 14:00</span>
+              </li>
+              <li class="hours-row hours-closed" data-today="dom">
+                <span class="hours-day">Domingo</span>
+                <span class="hours-dots"></span>
+                <span class="hours-time closed">Cerrado</span>
+              </li>
+            </ul>
+
+            <div class="hours-status" id="hoursStatus">
+              <!-- JS rellena esto -->
+            </div>
+
+            <a href="https://www.fresha.com" target="_blank" rel="noopener" class="hours-cta">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              Reservar cita online
+            </a>
+          </div>
+        </div>
+
+        <!-- Columna 3: Mapa -->
         <div class="contact-map reveal-right">
           <div class="map-wrap">
             <iframe
