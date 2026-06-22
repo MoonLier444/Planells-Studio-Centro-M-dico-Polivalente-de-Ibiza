@@ -235,61 +235,6 @@
   });
 })();
 
-/* ── Hours: today highlight + open/closed status ── */
-(function initHours() {
-  const statusEl = document.getElementById('hoursStatus');
-  if (!statusEl) return;
-
-  /* Map JS day (0=Sun) to data-today keys */
-  const dayMap = ['dom','lun','mar','mie','jue','vie','sab'];
-  const now    = new Date();
-  const dayKey = dayMap[now.getDay()];
-  const hour   = now.getHours() + now.getMinutes() / 60;
-
-  /* Highlight today's row */
-  document.querySelectorAll('.hours-row').forEach(row => {
-    if (row.dataset.today === dayKey) row.classList.add('today');
-  });
-
-  /* Open/closed logic */
-  const isWeekday = now.getDay() >= 1 && now.getDay() <= 5;
-  const isSat     = now.getDay() === 6;
-  const isSun     = now.getDay() === 0;
-
-  let isOpen = false;
-  let nextOpenMsg = '';
-
-  if (isWeekday && hour >= 9 && hour < 20) {
-    isOpen = true;
-  } else if (isSat && hour >= 9 && hour < 14) {
-    isOpen = true;
-  }
-
-  if (!isOpen) {
-    if (isSun) {
-      nextOpenMsg = 'Abre el lunes a las 9:00';
-    } else if (isSat && hour >= 14) {
-      nextOpenMsg = 'Abre el lunes a las 9:00';
-    } else if (hour < 9) {
-      nextOpenMsg = 'Abre hoy a las 9:00';
-    } else {
-      nextOpenMsg = 'Abre mañana a las 9:00';
-    }
-  }
-
-  const dot  = document.createElement('span');
-  dot.className = 'status-dot ' + (isOpen ? 'open' : 'closed');
-
-  const text = document.createElement('span');
-  text.className = 'status-text';
-  text.innerHTML = isOpen
-    ? '<strong>Abierto ahora</strong> · Cierra ' + (isSat ? 'a las 14:00' : 'a las 20:00')
-    : '<strong>Cerrado ahora</strong> · ' + nextOpenMsg;
-
-  statusEl.appendChild(dot);
-  statusEl.appendChild(text);
-})();
-
 /* ── Stat counter animation ─────────────────────── */
 (function initCounters() {
   const stats = document.querySelectorAll('.about-stat-num');
